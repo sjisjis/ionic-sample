@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      GitHub Users
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list [virtualScroll]="users" approxItemHeight="50px">
+    <button ion-item *virtualItem="let user">
+      <ion-avatar item-left>
+        <img [src]="user.avatar_url">
+      </ion-avatar>
+      <h2>id : {{ user.id }}</h2>
+      <h2>name : {{ user.login }}</h2>
+    </button>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
